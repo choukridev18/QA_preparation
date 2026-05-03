@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Badge visiteur — étape 2</title>
+</head>
+<body>
+  <main>
+    <h1>Demande de badge visiteur — étape 2 sur 3</h1>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/visitor/step2">
+      <label for="visit_date">Date de visite</label>
+      <input type="date" id="visit_date" name="visit_date" required>
+
+      <label for="purpose">Motif de la visite</label>
+      <select id="purpose" name="purpose" required>
+        <option value="" disabled selected>Choisir un motif</option>
+        <option value="Réunion client">Réunion client</option>
+        <option value="Entretien technique">Entretien technique</option>
+        <option value="Livraison / installation">Livraison / installation</option>
+      </select>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

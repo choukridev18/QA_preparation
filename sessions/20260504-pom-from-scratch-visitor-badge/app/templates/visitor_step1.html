@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Badge visiteur — étape 1</title>
+</head>
+<body>
+  <main>
+    <h1>Demande de badge visiteur — étape 1 sur 3</h1>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/visitor/step1">
+      <label for="full_name">Nom complet</label>
+      <input type="text" id="full_name" name="full_name" required>
+
+      <label for="email">Email professionnel</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="company">Entreprise</label>
+      <input type="text" id="company" name="company" required>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

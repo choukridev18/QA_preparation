@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Badge visiteur — confirmation</title>
+</head>
+<body>
+  <main>
+    <h1>Demande de badge visiteur — étape 3 sur 3</h1>
+
+    <section id="recap" aria-labelledby="recap-title">
+      <h2 id="recap-title">Récapitulatif</h2>
+      <dl>
+        <dt>Nom</dt>
+        <dd id="recap-name">{{ full_name }}</dd>
+        <dt>Email</dt>
+        <dd id="recap-email">{{ email }}</dd>
+        <dt>Entreprise</dt>
+        <dd id="recap-company">{{ company }}</dd>
+        <dt>Date de visite</dt>
+        <dd id="recap-visit-date">{{ visit_date }}</dd>
+        <dt>Motif</dt>
+        <dd id="recap-purpose">{{ purpose }}</dd>
+      </dl>
+    </section>
+
+    <form method="POST" action="/visitor/step3">
+      <button type="submit">Confirmer la demande</button>
+    </form>
+  </main>
+</body>
+</html>
