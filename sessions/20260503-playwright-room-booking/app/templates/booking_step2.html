@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation — étape 2</title>
+</head>
+<body>
+  <main>
+    <h1>Réservation de salle — étape 2 sur 3</h1>
+    <p id="step-indicator" aria-live="polite">Étape 2 sur 3</p>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/booking/step2">
+      <label for="time_slot">Créneau</label>
+      <select id="time_slot" name="time_slot" required>
+        <option value="" disabled selected>Choisir un créneau</option>
+        <option value="Matin (9h–12h)">Matin (9h–12h)</option>
+        <option value="Après-midi (14h–17h)">Après-midi (14h–17h)</option>
+        <option value="Journée complète">Journée complète</option>
+      </select>
+
+      <label for="attendees">Nombre de participants</label>
+      <input type="number" id="attendees" name="attendees" min="1" max="80" required>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

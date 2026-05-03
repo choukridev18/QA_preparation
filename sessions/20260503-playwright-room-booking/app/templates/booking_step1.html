@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation — étape 1</title>
+</head>
+<body>
+  <main>
+    <h1>Réservation de salle — étape 1 sur 3</h1>
+    <p id="step-indicator" aria-live="polite">Étape 1 sur 3</p>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/booking/step1">
+      <label for="booking_date">Date de la réservation</label>
+      <input type="date" id="booking_date" name="booking_date" min="{{ today_iso }}" required>
+
+      <label for="room">Salle</label>
+      <select id="room" name="room" required>
+        <option value="" disabled selected>Choisir une salle</option>
+        <option value="Petite salle">Petite salle</option>
+        <option value="Grande salle">Grande salle</option>
+        <option value="Salle créative">Salle créative</option>
+      </select>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation — confirmation</title>
+</head>
+<body>
+  <main>
+    <h1>Réservation de salle — étape 3 sur 3</h1>
+    <p id="step-indicator" aria-live="polite">Étape 3 sur 3</p>
+
+    <section id="recap" aria-labelledby="recap-title">
+      <h2 id="recap-title">Récapitulatif</h2>
+      <dl>
+        <dt>Date</dt>
+        <dd id="recap-date">{{ booking_date }}</dd>
+        <dt>Salle</dt>
+        <dd id="recap-room">{{ room }}</dd>
+        <dt>Créneau</dt>
+        <dd id="recap-slot">{{ time_slot }}</dd>
+        <dt>Participants</dt>
+        <dd id="recap-attendees">{{ attendees }}</dd>
+      </dl>
+    </section>
+
+    <form method="POST" action="/booking/step3">
+      <button type="submit">Confirmer la réservation</button>
+    </form>
+  </main>
+</body>
+</html>
