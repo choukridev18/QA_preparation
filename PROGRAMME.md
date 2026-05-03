@@ -118,6 +118,17 @@ Même workflow que mardi et jeudi. L'agent génère un scénario différent des 
 
 Répartition : 3× Playwright · 2× Bug hunt · 1× Python pur · 1× Python/pytest
 
+### Session optionnelle — POM & tests from scratch
+
+> **Pas** dans le total hebdo ci-dessus. À faire **de temps en temps** (idéalement **1× / semaine** ou **1× / 2 semaines**), entre deux jours Playwright lourds — par ex. un **mercredi soir**, **jeudi matin**, ou **lundi / vendredi** si tu veux consolider sans recopier des stubs.
+
+1. Lance `/qa-playwright-from-scratch` — l’agent propose 3 scénarios, tu choisis.
+2. L’agent génère **l’app Flask + le brief** ; les dossiers **`pages/`** et **`tests/`** restent **vides** : tu crées **toi-même** tous les Page Objects et **tous** les tests.
+3. Tu respectes la checklist du **`BRIEF.md`** (nombre de tests, parcours à couvrir).
+4. Dis « j’ai fini » pour le débrief.
+
+**Objectif** : ne plus dépendre des TODO pré-remplis des sessions `/qa-playwright-session`.
+
 ---
 
 ## Signaux de progression
