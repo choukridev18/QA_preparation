@@ -58,3 +58,39 @@ def test_step3_without_prior_booking_redirects_to_step1(page: Page):
     step3.navigate()
 
     expect(page).to_have_url("http://localhost:5001/booking/step1")
+
+def test_success_page_without_booking_redirects_to_step1(page: Page):
+    """Sans réservation en session, /booking/success renvoie vers l'étape 1."""
+    page.goto("http://localhost:5001/booking/success")
+    expect(page).to_have_url("http://localhost:5001/booking/step1")
+
+
+
+def test_complete_booking_flow_alternate_choices(page: Page):
+    """Parcours complet : étapes 1→2→3 puis page succès avec une référence BK-."""
+    iso = _future_date_iso()
+    step1 = BookingStep1Page(page)
+    step1.navigate()
+    step1.fill_booking_date(iso)
+    step1.select_room("Petite salle")
+    step1.click_next()
+
+    expect(page).to_have_url("http://localhost:5001/booking/step2")
+
+    step2 = BookingStep2Page(page)
+    step2.select_time_slot("Matin (9h–12h)")
+    step2.set_attendees(6)
+    step2.click_next()
+
+    expect(page).to_have_url("http://localhost:5001/booking/step3")
+
+    step3 = BookingStep3Page(page)
+    assert step3.get_recap_date_text().strip() == iso
+    assert step3.get_recap_room_text().strip() == "Petite salle"
+    step3.confirm_booking()
+
+    expect(page).to_have_url("http://localhost:5001/booking/success")
+
+    success = BookingSuccessPage(page)
+    ref = success.get_booking_reference().strip()
+    assert ref.startswith("BK-")
