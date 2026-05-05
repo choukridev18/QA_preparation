@@ -183,17 +183,6 @@ cd app && python server.py
 - Chaque test qui échoue a exactement 1 bug
 - Les tests qui passent sont corrects
 
-## Indices (seulement si bloqué depuis plus de 10 min)
-
-<details>
-<summary>Fichiers concernés</summary>
-[Liste des fichiers contenant des bugs — sans préciser lesquels]
-</details>
-
-<details>
-<summary>Catégories de bugs</summary>
-[Ex: "deux bugs d'assertion, un bug de mock, un bug de fixture" — sans les localiser]
-</details>
 ```
 
 ### Format `BUGS.md`
@@ -247,7 +236,7 @@ Corriger tout problème de setup avant de présenter le brief.
 🎯  Objectif : tous les tests passent en modifiant uniquement tests/
 ⚠️  Ne regarde pas BUGS.md avant d'avoir fini.
 
-Dis-moi quand tu as terminé ou si tu es bloqué depuis plus de 10 min.
+Dis-moi quand tu as terminé.
 ```
 
 ### Étape 4 — Débrief (quand l'utilisateur dit qu'il a fini)
@@ -437,17 +426,6 @@ Suite à un refactor de [date fictive], plusieurs tests ont commencé à échoue
 - Les tests qui passent déjà sont corrects — ne les touche pas
 - Lance `pytest tests/ -v` après chaque correction pour vérifier
 
-## Indices (seulement si bloqué depuis plus de 10 min sur un bug)
-
-<details>
-<summary>Quels fichiers regarder en premier</summary>
-[Donner la liste des fichiers qui contiennent des bugs sans révéler le bug lui-même]
-</details>
-
-<details>
-<summary>Type de bugs présents</summary>
-[Donner les catégories de bugs (ex: "un bug de mock, deux bugs d'assertion, un bug de fixture") sans les localiser précisément]
-</details>
 ```
 
 ### Format `BUGS.md` (révélé seulement après la session)
@@ -487,7 +465,7 @@ Après avoir généré les fichiers, afficher :
 
 ⚠️  Ne regarde pas BUGS.md avant d'avoir fini.
 
-Dis-moi quand tu as terminé ou si tu es bloqué sur un bug depuis plus de 10 min.
+Dis-moi quand tu as terminé.
 ```
 
 ### Étape 3 — Débrief (quand l'utilisateur dit qu'il a fini)

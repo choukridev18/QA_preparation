@@ -82,8 +82,6 @@ from typing import ...
 # ------------------------------------------------------------
 # Entrée  : [exemple concret d'input]
 # Sortie  : [exemple concret d'output attendu]
-#
-# Indice : [suggère le bon outil Python, jamais la solution]
 # ------------------------------------------------------------
 def nom_fonction(...) -> ...:
     raise NotImplementedError

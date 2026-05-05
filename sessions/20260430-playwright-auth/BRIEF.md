@@ -47,34 +47,6 @@ cd sessions/20260430-playwright-auth
 .venv/bin/pytest tests/ -v
 ```
 
-## Indices (seulement si bloqué depuis plus de 15 min)
-
-<details>
-<summary>Indice 1 — remplir un champ de formulaire</summary>
-
-Pour remplir un champ qui a un `<label>` associé, utilise :
-```python
-self.page.get_by_label("texte exact du label").fill("valeur")
-```
-Le texte exact des labels est dans `app/templates/login.html`.
-</details>
-
-<details>
-<summary>Indice 2 — vérifier si un élément existe avant de lire son texte</summary>
-
-`locator("#error-message")` pointe vers l'élément, mais il n'existe que si une erreur est affichée.
-Utilise `.count()` pour vérifier s'il est présent avant d'appeler `.text_content()`.
-</details>
-
-<details>
-<summary>Indice 3 — idées pour les 2 tests supplémentaires</summary>
-
-Quelques cas non couverts par les tests fournis :
-- Que se passe-t-il après une déconnexion (logout) ?
-- Que voit-on sur le dashboard (message de bienvenue avec le bon email) ?
-- Que se passe-t-il si on soumet le formulaire avec l'email vide ?
-</details>
-
 ## Contraintes
 
 - Playwright Python — sync API uniquement

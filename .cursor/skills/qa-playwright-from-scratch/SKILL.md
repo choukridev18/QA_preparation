@@ -81,7 +81,7 @@ sessions/YYYYMMDD-pom-from-scratch-[slug]/
 2. **Lancer le serveur** : `cd app` puis `python server.py`, port **5001** (ou autre si conflit, à documenter).
 3. **Checklist** de critères d'acceptation : nombre minimal de tests, parcours nominal, garde-fous (redirections sans session, etc.).
 4. **Contraintes** : POM obligatoire ; API **sync** Playwright ; pas de `time.sleep()` ; locators sémantiques (`get_by_role`, `get_by_label`, etc.) ; assertions avec `expect` pour l'état visible ou l'URL.
-5. **Indices** : aucun indice dans le code généré ; au plus **une** section « Indices » en `<details>` dans le brief, **très parcimonieuse** (max 2 indices vagues), ouverte seulement après ~20 min de blocage.
+5. **Indices** : aucun indice dans le code généré, aucune section « Indices » dans le brief.
 
 ### Étape 3 — Setup
 
@@ -110,4 +110,4 @@ Réutiliser la même veine que **`qa-playwright-session`** mais avec des **varia
 ## Rappel pour l'agent
 
 - Ne pas générer de POM ni de tests fournis : c'est le cœur du skill.
-- Si l'utilisateur est très bloqué après longtemps, **un seul** micro-indice (ex. « commence par une classe pour l'écran du formulaire initial ») — pas la solution complète.
+- Ne pas donner d'indices, même si l'utilisateur est bloqué — poser des questions pour le guider.

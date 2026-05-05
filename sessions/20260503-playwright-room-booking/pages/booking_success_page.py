@@ -15,7 +15,6 @@ class BookingSuccessPage:
     # ----------------------------------------------------------
     # TODO 1 — Lire la référence de réservation affichée
     # ----------------------------------------------------------
-    # Sortie  : texte du strong#booking-reference (ex. "BK-A1B2C3")
     #
     # ----------------------------------------------------------
     def get_booking_reference(self) -> str:

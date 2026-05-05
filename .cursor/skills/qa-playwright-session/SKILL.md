@@ -196,8 +196,6 @@ class PageName:
     # ----------------------------------------------------------
     # TODO 1 — Naviguer vers la page
     # ----------------------------------------------------------
-    # Indice : self.page.goto(self.URL)
-    # ----------------------------------------------------------
     def navigate(self) -> None:
         raise NotImplementedError
 
@@ -206,7 +204,6 @@ class PageName:
     # ----------------------------------------------------------
     # Entrée  : [exemple concret]
     # Attendu : [ce que ça fait]
-    # Indice  : get_by_label("[texte exact du label dans le HTML]")
     # ----------------------------------------------------------
     def method_name(self, value: str) -> None:
         raise NotImplementedError
@@ -215,14 +212,12 @@ class PageName:
     # TODO N — Lire [état]
     # ----------------------------------------------------------
     # Sortie  : [exemple concret de valeur retournée]
-    # Indice  : locator("#id-exact-dans-le-html").text_content()
     # ----------------------------------------------------------
     def get_something(self) -> str:
         raise NotImplementedError
 ```
 
 Règles pour les stubs POM :
-- Les indices mentionnent les **textes exacts des labels** et les **IDs exacts** tels qu'écrits dans le HTML généré — pas d'approximation
 - Toutes les méthodes lèvent `NotImplementedError`
 - **Noms de méthodes et variables en anglais**
 
@@ -330,18 +325,6 @@ cd app && python server.py
 - [ ] Pas de `time.sleep()` — utilise `expect()` ou `wait_for_*`
 - [ ] Le POM encapsule toute l'interaction — les tests n'appellent pas Playwright directement
 - [ ] [critère spécifique au scénario]
-
-## Indices (seulement si bloqué depuis plus de 15 min)
-
-<details>
-<summary>Indice 1</summary>
-[Pointer vers un élément HTML précis ou un pattern Playwright — sans donner le code]
-</details>
-
-<details>
-<summary>Indice 2</summary>
-[Pointer vers une fixture ou un pattern de conftest]
-</details>
 
 ## Contraintes
 

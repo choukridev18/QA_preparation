@@ -49,31 +49,6 @@ cd sessions/20260503-playwright-room-booking
 .venv/bin/pytest tests/ -v
 ```
 
-## Indices (seulement si bloqué depuis plus de 15 min)
-
-<details>
-<summary>Indice 1 — liste déroulante</summary>
-
-Pour une `<select>` avec libellés visibles en français, utilise
-`locator.select_option(label="…")` ou `get_by_label("…").select_option(label="…")`
-avec le **texte exact** de l’option dans le HTML.
-</details>
-
-<details>
-<summary>Indice 2 — ordre des étapes</summary>
-
-Les routes `/booking/step2` et `/booking/step3` vérifient la session Flask : sans données
-préalables, la redirection attendue est vers `/booking/step1` (voir les tests fournis).
-</details>
-
-<details>
-<summary>Indice 3 — idées pour tes 2+ tests</summary>
-
-Erreur serveur étape 1 si champs manquants (ex. soumission incomplète si tu simules le cas),
-vérification du créneau ou du nombre de participants au récap, navigation « Nouvelle réservation »
-qui ramène à l’étape 1 avec état cohérent.
-</details>
-
 ## Contraintes
 
 - Playwright Python — API **sync** uniquement

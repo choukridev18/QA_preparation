@@ -47,20 +47,6 @@ Lancer les tests :
 
 *(Au début : « no tests collected » est normal tant que tu n’as pas créé de fichiers `test_*.py`.)*
 
-## Indices (seulement si bloqué > 20 min)
-
-<details>
-<summary>Indice 1</summary>
-
-Les libellés des `<label>` dans `app/templates/` sont la source de vérité pour `get_by_label(...)`.
-</details>
-
-<details>
-<summary>Indice 2</summary>
-
-Les `id` du récapitulatif étape 3 : `recap-name`, `recap-email`, `recap-company`, `recap-visit-date`, `recap-purpose` ; succès : `badge-id`.
-</details>
-
 ## Fin de session
 
 Quand la checklist est verte, dis **« j’ai fini »** dans le chat pour un débrief (optionnel : fichier `debrief.md`).

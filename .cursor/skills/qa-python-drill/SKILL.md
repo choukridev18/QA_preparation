@@ -85,8 +85,6 @@ from typing import ...
 # ------------------------------------------------------------
 # Entrée  : [exemple concret]
 # Sortie  : [exemple concret du résultat attendu]
-#
-# Indice : [suggère le bon outil ou concept, jamais la solution]
 # ------------------------------------------------------------
 def nom_fonction(...) -> ...:
     raise NotImplementedError
@@ -97,7 +95,6 @@ def nom_fonction(...) -> ...:
 
 **Règles pour les blocs TODO :**
 - Toujours montrer un exemple Entrée/Sortie concret — pas de description abstraite
-- L'indice suggère le bon outil (`pytest.mark.parametrize`, `unittest.mock.patch`, etc.) sans donner l'implémentation
 - Ne jamais donner d'instructions étape par étape — c'est donner la réponse
 - Chaque fonction commence par `raise NotImplementedError` — pas de logique partielle
 - **Noms de variables, fonctions et classes en anglais** — seuls les commentaires, messages d'assertion et instructions `# TODO` sont en français
@@ -184,7 +181,7 @@ Après avoir généré les fichiers, afficher :
 ▶️  Lance : pytest drills/YYYYMMDD-[slug]/test_exercise.py -v
 ✅  Objectif : tous les tests passent
 
-Dis-moi quand tu as fini ou si tu es bloqué.
+Dis-moi quand tu as fini.
 ```
 
 ### Étape 3 — Review (quand l'utilisateur a fini)
