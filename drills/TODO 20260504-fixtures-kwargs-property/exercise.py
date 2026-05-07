@@ -30,25 +30,16 @@ class Order:
     options: dict = field(default_factory=dict)
 
 
-# ------------------------------------------------------------
-# TODO 1 — @property : total brut
-# ------------------------------------------------------------
-#
-#          la somme de (item.unit_price * item.quantity).
-#          Tu dois modifier la classe Order ci-dessus.
-# ------------------------------------------------------------
-# → Ajoute la @property directement dans la classe Order (ci-dessus).
+    @property
+    def subtotal(self):
+        return sum(item.unit_price * item.quantity for item in self.items)
+    
+    @property
+    def total(self):
+        return self.subtotal * (1 - self.discount)
 
 
-# ------------------------------------------------------------
-# TODO 2 — @property : total après remise
-# ------------------------------------------------------------
-#
-#          le discount sur subtotal.
-# ------------------------------------------------------------
-# → Ajoute la @property directement dans la classe Order (ci-dessus).
-
-
+    
 # ------------------------------------------------------------
 # TODO 3 — dict unpacking : fusion de configs
 # ------------------------------------------------------------
