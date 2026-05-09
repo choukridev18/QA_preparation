@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes tâches</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { margin-bottom: 1.5rem; }
+    form.add-form { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+    form.add-form input { flex: 1; padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    form.add-form button { padding: 0.5rem 1rem; background: #2a7ae2; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    nav.filters { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    nav.filters a { text-decoration: none; color: #555; padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid #ddd; }
+    nav.filters a.active { background: #2a7ae2; color: white; border-color: #2a7ae2; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+    li.done span { text-decoration: line-through; color: #aaa; }
+    li span { flex: 1; }
+    button.btn-done { padding: 0.3rem 0.7rem; background: #38a169; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+    button.btn-delete { padding: 0.3rem 0.7rem; background: #e53e3e; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+    #task-count { margin-top: 1.5rem; color: #666; font-size: 0.9rem; }
+    #empty-message { color: #999; font-style: italic; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Mes tâches</h1>
+
+  <form class="add-form" method="POST" action="/add">
+    <label for="title" class="sr-only">Nouvelle tâche</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      placeholder="Nouvelle tâche..."
+      aria-label="Nouvelle tâche"
+      required
+    >
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <nav class="filters" aria-label="Filtres">
+    <a href="/?filter=all" class="{{ 'active' if filtre == 'all' else '' }}">Toutes</a>
+    <a href="/?filter=active" class="{{ 'active' if filtre == 'active' else '' }}">Actives</a>
+    <a href="/?filter=done" class="{{ 'active' if filtre == 'done' else '' }}">Terminées</a>
+  </nav>
+
+  {% if todos %}
+  <ul id="todo-list">
+    {% for todo in todos %}
+    <li id="todo-{{ todo.id }}" class="{{ 'done' if todo.done else '' }}">
+      <span>{{ todo.title }}</span>
+      {% if not todo.done %}
+      <form method="POST" action="/done/{{ todo.id }}" style="display:inline;">
+        <button type="submit" class="btn-done" aria-label="Marquer {{ todo.title }} comme terminée">Terminer</button>
+      </form>
+      {% endif %}
+      <form method="POST" action="/delete/{{ todo.id }}" style="display:inline;">
+        <button type="submit" class="btn-delete" aria-label="Supprimer {{ todo.title }}">Supprimer</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  <p id="task-count">{{ total }} tâche{{ 's' if total > 1 else '' }} au total</p>
+  {% else %}
+  <p id="empty-message">Aucune tâche à afficher.</p>
+  {% endif %}
+</body>
+</html>
