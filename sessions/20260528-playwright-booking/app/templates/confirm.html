@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Réservation — Confirmation</title></head>
+<body>
+  <main>
+    <h1>Réservation</h1>
+    <nav aria-label="Étapes">
+      <span aria-current="step">Étape 3 / 3 — Récapitulatif</span>
+    </nav>
+
+    <section id="booking-summary" aria-label="Récapitulatif de la réservation">
+      <h2>Récapitulatif</h2>
+      <p>Nom : <strong id="summary-name">{{ name }}</strong></p>
+      <p>Email : <strong id="summary-email">{{ email }}</strong></p>
+      <p>Date : <strong id="summary-date">{{ date }}</strong></p>
+      <p>Personnes : <strong id="summary-guests">{{ guests }}</strong></p>
+    </section>
+
+    <form method="POST" action="/confirm">
+      <button type="submit">Confirmer la réservation</button>
+    </form>
+    <a href="/step1">Recommencer</a>
+  </main>
+</body>
+</html>

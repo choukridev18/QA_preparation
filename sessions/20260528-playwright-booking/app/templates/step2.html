@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Réservation — Étape 2</title></head>
+<body>
+  <main>
+    <h1>Réservation</h1>
+    <nav aria-label="Étapes">
+      <span aria-current="step">Étape 2 / 3 — Détails</span>
+    </nav>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/step2">
+      <div>
+        <label for="date">Date de réservation</label>
+        <input type="text" id="date" name="date" placeholder="JJ/MM/AAAA" autocomplete="off">
+      </div>
+      <div>
+        <label for="guests">Nombre de personnes</label>
+        <select id="guests" name="guests">
+          <option value="1">1 personne</option>
+          <option value="2">2 personnes</option>
+          <option value="3">3 personnes</option>
+          <option value="4">4 personnes</option>
+          <option value="5">5 personnes</option>
+          <option value="6">6 personnes</option>
+          <option value="7">7 personnes</option>
+          <option value="8">8 personnes</option>
+        </select>
+      </div>
+      <button type="submit">Étape suivante</button>
+    </form>
+  </main>
+</body>
+</html>
