@@ -1,4 +1,3 @@
-from os import name
 from playwright.sync_api import Page
 
 
@@ -101,3 +100,6 @@ class BookingPage:
 
     def get_summary_guests(self) -> str:
         return self.page.locator("#summary-guests").inner_text()
+    
+
+        
