@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Tableau de bord — Tickets</title></head>
+<body>
+  <main>
+    <h1 id="dashboard-title">Tableau de bord des tickets</h1>
+
+    <form method="GET" action="/dashboard" id="filter-form">
+      <fieldset>
+        <legend>Filtres</legend>
+
+        <div>
+          <label for="status">Statut</label>
+          <select id="status" name="status">
+            <option value="" {% if not status %}selected{% endif %}>Tous</option>
+            <option value="ouvert" {% if status == "ouvert" %}selected{% endif %}>Ouvert</option>
+            <option value="en_cours" {% if status == "en_cours" %}selected{% endif %}>En cours</option>
+            <option value="ferme" {% if status == "ferme" %}selected{% endif %}>Fermé</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="priority">Priorité</label>
+          <select id="priority" name="priority">
+            <option value="" {% if not priority %}selected{% endif %}>Toutes</option>
+            <option value="haute" {% if priority == "haute" %}selected{% endif %}>Haute</option>
+            <option value="basse" {% if priority == "basse" %}selected{% endif %}>Basse</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="search">Recherche</label>
+          <input type="text" id="search" name="search" value="{{ search }}" placeholder="Mot-clé dans le titre">
+        </div>
+
+        <button type="submit">Appliquer les filtres</button>
+        <a href="/dashboard" id="reset-filters">Réinitialiser les filtres</a>
+      </fieldset>
+    </form>
+
+    <p id="ticket-count">{{ tickets|length }} ticket(s) affiché(s)</p>
+
+    {% if tickets %}
+    <table id="ticket-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titre</th>
+          <th>Statut</th>
+          <th>Priorité</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in tickets %}
+        <tr class="ticket-row" data-ticket-id="{{ ticket.id }}">
+          <td>{{ ticket.id }}</td>
+          <td class="ticket-title">{{ ticket.title }}</td>
+          <td class="ticket-status">{{ ticket.status }}</td>
+          <td class="ticket-priority">{{ ticket.priority }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p id="no-results" role="alert">Aucun ticket ne correspond aux filtres.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
