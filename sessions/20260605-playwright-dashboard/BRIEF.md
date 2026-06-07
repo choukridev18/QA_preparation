@@ -40,13 +40,15 @@ cd app && python server.py
 
 ## Données de référence
 
-| ID | Titre | Statut | Priorité |
-|----|-------|--------|----------|
-| 1 | Bug connexion impossible | ouvert | haute |
-| 2 | Export CSV ne fonctionne pas | ouvert | basse |
-| 3 | Lenteur page tableau de bord | en_cours | haute |
-| 4 | Email de confirmation manquant | en_cours | basse |
-| 5 | Erreur 500 sur facturation | ferme | haute |
-| 6 | Typo page d'accueil | ferme | basse |
+
+| ID  | Titre                          | Statut   | Priorité |
+| --- | ------------------------------ | -------- | -------- |
+| 1   | Bug connexion impossible       | ouvert   | haute    |
+| 2   | Export CSV ne fonctionne pas   | ouvert   | basse    |
+| 3   | Lenteur page tableau de bord   | en_cours | haute    |
+| 4   | Email de confirmation manquant | en_cours | basse    |
+| 5   | Erreur 500 sur facturation     | ferme    | haute    |
+| 6   | Typo page d'accueil            | ferme    | basse    |
+
 
 Valeurs des `<select>` : statut `ouvert`, `en_cours`, `ferme` ; priorité `haute`, `basse`.
