@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier le profil</title>
+</head>
+<body>
+  <main>
+    <h1>Modifier le profil</h1>
+
+    <form method="POST" action="/profile/edit">
+
+      <div>
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" value="{{ profile.name }}" placeholder="Votre nom">
+        {% if errors.name %}
+        <span id="error-name" role="alert">{{ errors.name }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value="{{ profile.email }}" placeholder="Votre email">
+        {% if errors.email %}
+        <span id="error-email" role="alert">{{ errors.email }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" placeholder="Quelques mots sur vous">{{ profile.bio }}</textarea>
+      </div>
+
+      <button type="submit">Enregistrer</button>
+      <a href="/profile">Annuler</a>
+    </form>
+  </main>
+</body>
+</html>

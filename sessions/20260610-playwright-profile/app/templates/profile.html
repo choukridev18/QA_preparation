@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon profil</title>
+</head>
+<body>
+  <main>
+    <h1>Mon profil</h1>
+
+    {% if flash_success %}
+    <p id="success-message" role="status">Profil mis à jour avec succès.</p>
+    {% endif %}
+
+    <dl id="profile-details">
+      <dt>Nom</dt>
+      <dd id="profile-name">{{ profile.name }}</dd>
+
+      <dt>Email</dt>
+      <dd id="profile-email">{{ profile.email }}</dd>
+
+      <dt>Bio</dt>
+      <dd id="profile-bio">{{ profile.bio }}</dd>
+    </dl>
+
+    <a href="/profile/edit" id="edit-link">Modifier le profil</a>
+  </main>
+</body>
+</html>
