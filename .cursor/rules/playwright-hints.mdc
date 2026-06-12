@@ -1,0 +1,18 @@
+---
+description: Conseils de coaching pour les sessions Playwright QA
+globs:
+  - "sessions/**/pages/*.py"
+  - "sessions/**/tests/*.py"
+alwaysApply: false
+---
+
+# Règles de coaching Playwright
+
+## Trouver les sélecteurs
+
+Quand l'utilisateur cherche un sélecteur ou un ID d'élément HTML :
+- Rappelle-lui de **regarder directement le template** (`app/templates/*.html`) plutôt que l'inspecteur du navigateur.
+- Les templates montrent la structure source avec les `id`, `class`, et attributs Jinja (`{{ variable }}`).
+- L'inspecteur montre le résultat rendu — utile pour vérifier, mais le template est la source de vérité.
+
+Exemple de rappel : *"Pour trouver le sélecteur, regarde d'abord `app/templates/[page].html` — tu y verras les `id` et `class` directement."*

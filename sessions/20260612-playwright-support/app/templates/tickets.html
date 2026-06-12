@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tickets de support</title>
+</head>
+<body>
+  <main>
+    <h1>Tickets de support</h1>
+
+    <p id="open-count"><span id="open-count-number">{{ open_count }}</span> ticket(s) ouvert(s)</p>
+
+    <a href="/tickets/new" id="new-ticket-link">Nouveau ticket</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titre</th>
+          <th>Catégorie</th>
+          <th>Statut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="ticket-list">
+        {% for ticket in tickets %}
+        <tr id="ticket-{{ ticket.id }}">
+          <td>{{ ticket.id }}</td>
+          <td class="ticket-title">{{ ticket.title }}</td>
+          <td class="ticket-category">{{ ticket.category }}</td>
+          <td class="ticket-status">{{ ticket.status }}</td>
+          <td>
+            {% if ticket.status == "Ouvert" %}
+            <form method="POST" action="/tickets/{{ ticket.id }}/resolve">
+              <button type="submit" aria-label="Résoudre le ticket {{ ticket.id }}">Résolu</button>
+            </form>
+            {% else %}
+            <span>—</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

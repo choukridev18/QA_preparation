@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nouveau ticket</title>
+</head>
+<body>
+  <main>
+    <h1>Nouveau ticket</h1>
+
+    <form method="POST" action="/tickets/new">
+
+      <div>
+        <label for="title">Titre</label>
+        <input type="text" id="title" name="title" value="{{ form.get('title', '') }}" placeholder="Décrivez le problème en une phrase">
+        {% if errors.title %}
+        <span id="error-title" role="alert">{{ errors.title }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="category">Catégorie</label>
+        <select id="category" name="category">
+          <option value="">-- Choisir --</option>
+          {% for cat in categories %}
+          <option value="{{ cat }}" {% if form.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+          {% endfor %}
+        </select>
+        {% if errors.category %}
+        <span id="error-category" role="alert">{{ errors.category }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Détails supplémentaires (optionnel)">{{ form.get('description', '') }}</textarea>
+      </div>
+
+      <button type="submit">Soumettre</button>
+      <a href="/tickets">Annuler</a>
+    </form>
+  </main>
+</body>
+</html>
