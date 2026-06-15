@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Inscription — Étape 1</title></head>
+<body>
+  <main>
+    <h1>Étape 1 — Informations personnelles</h1>
+    <p id="step-indicator">Étape 1 sur 3</p>
+
+    <form method="POST" action="/step1">
+
+      <div>
+        <label for="first_name">Prénom</label>
+        <input type="text" id="first_name" name="first_name" value="{{ form.get('first_name', '') }}">
+        {% if errors.first_name %}
+        <span id="error-first-name" role="alert">{{ errors.first_name }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="last_name">Nom</label>
+        <input type="text" id="last_name" name="last_name" value="{{ form.get('last_name', '') }}">
+        {% if errors.last_name %}
+        <span id="error-last-name" role="alert">{{ errors.last_name }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value="{{ form.get('email', '') }}">
+        {% if errors.email %}
+        <span id="error-email" role="alert">{{ errors.email }}</span>
+        {% endif %}
+      </div>
+
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

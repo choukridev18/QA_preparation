@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Inscription — Étape 2</title></head>
+<body>
+  <main>
+    <h1>Étape 2 — Choix du plan</h1>
+    <p id="step-indicator">Étape 2 sur 3</p>
+
+    <form method="POST" action="/step2">
+
+      <div>
+        <label for="plan">Plan</label>
+        <select id="plan" name="plan">
+          <option value="">-- Choisir --</option>
+          {% for p in plans %}
+          <option value="{{ p }}" {% if selected == p %}selected{% endif %}>{{ p }}</option>
+          {% endfor %}
+        </select>
+        {% if errors.plan %}
+        <span id="error-plan" role="alert">{{ errors.plan }}</span>
+        {% endif %}
+      </div>
+
+      <a href="/step1" id="back-link">Retour</a>
+      <button type="submit">Suivant</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Inscription — Confirmation</title></head>
+<body>
+  <main>
+    <h1>Étape 3 — Confirmation</h1>
+    <p id="step-indicator">Étape 3 sur 3</p>
+
+    <dl id="summary">
+      <dt>Prénom</dt>
+      <dd id="summary-first-name">{{ data.first_name }}</dd>
+
+      <dt>Nom</dt>
+      <dd id="summary-last-name">{{ data.last_name }}</dd>
+
+      <dt>Email</dt>
+      <dd id="summary-email">{{ data.email }}</dd>
+
+      <dt>Plan</dt>
+      <dd id="summary-plan">{{ data.plan }}</dd>
+    </dl>
+
+    <form method="POST" action="/confirm">
+      <a href="/step2" id="back-link">Retour</a>
+      <button type="submit">Confirmer l'inscription</button>
+    </form>
+  </main>
+</body>
+</html>
