@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Nouvelle note</title></head>
+<body>
+  <main>
+    <h1>Nouvelle note</h1>
+
+    <form method="POST" action="/new">
+      <div>
+        <label for="title">Titre</label>
+        <input type="text" id="title" name="title" placeholder="Titre de la note">
+        {% if error_title %}
+        <span id="error-title" role="alert">{{ error_title }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="content">Contenu</label>
+        <textarea id="content" name="content" placeholder="Contenu de la note"></textarea>
+        {% if error_content %}
+        <span id="error-content" role="alert">{{ error_content }}</span>
+        {% endif %}
+      </div>
+
+      <button type="submit">Enregistrer</button>
+      <a href="/" id="cancel-link">Annuler</a>
+    </form>
+  </main>
+</body>
+</html>

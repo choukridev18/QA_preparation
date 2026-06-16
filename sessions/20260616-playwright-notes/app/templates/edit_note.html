@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Modifier la note</title></head>
+<body>
+  <main>
+    <h1>Modifier la note</h1>
+
+    <form method="POST" action="/edit/{{ note.id }}">
+      <div>
+        <label for="title">Titre</label>
+        <input type="text" id="title" name="title" value="{{ note.title }}">
+        {% if error_title %}
+        <span id="error-title" role="alert">{{ error_title }}</span>
+        {% endif %}
+      </div>
+
+      <div>
+        <label for="content">Contenu</label>
+        <textarea id="content" name="content">{{ note.content }}</textarea>
+      </div>
+
+      <button type="submit">Enregistrer</button>
+      <a href="/" id="cancel-link">Annuler</a>
+    </form>
+  </main>
+</body>
+</html>

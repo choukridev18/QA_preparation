@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Mes notes</title></head>
+<body>
+  <main>
+    <h1>Mes notes</h1>
+
+    <a href="/new" id="new-note-link">Nouvelle note</a>
+
+    <p id="note-count">{{ notes|length }} note(s)</p>
+
+    {% if notes %}
+    <ul id="notes-list">
+      {% for note in notes %}
+      <li id="note-{{ note.id }}">
+        <span class="note-title">{{ note.title }}</span>
+        <a href="/edit/{{ note.id }}" aria-label="Modifier la note {{ note.id }}">Modifier</a>
+        <form method="POST" action="/delete/{{ note.id }}" style="display:inline">
+          <button type="submit" aria-label="Supprimer la note {{ note.id }}">Supprimer</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p id="empty-message">Aucune note pour l'instant.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
