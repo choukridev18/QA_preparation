@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Inscription — Étape 2</title></head>
+<body>
+  <main>
+    <h1>Vos préférences</h1>
+    <p id="step-indicator">Étape 2 sur 2</p>
+
+    <form method="POST" action="/signup/step2">
+      <label for="newsletter">
+        <input type="checkbox" id="newsletter" name="newsletter">
+        Recevoir la newsletter
+      </label>
+
+      <label for="language">Langue préférée</label>
+      <select id="language" name="language">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+
+      <a href="/signup/step1" id="back-link">Retour à l'étape 1</a>
+      <button type="submit">Terminer l'inscription</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Inscription — Étape 1</title></head>
+<body>
+  <main>
+    <h1>Créer un compte</h1>
+    <p id="step-indicator">Étape 1 sur 2</p>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/signup/step1">
+      <label for="name">Nom complet</label>
+      <input type="text" id="name" name="name" placeholder="Votre nom">
+
+      <label for="email">Adresse email</label>
+      <input type="text" id="email" name="email" placeholder="Votre email">
+
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" placeholder="6 caractères minimum">
+
+      <button type="submit">Continuer</button>
+    </form>
+  </main>
+</body>
+</html>
