@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Quiz — Question {{ number }}</title></head>
+<body>
+  <main>
+    <p id="question-number">Question {{ number }} sur {{ total }}</p>
+    <h1 id="question-text">{{ question.text }}</h1>
+
+    <form method="POST" action="/quiz/{{ number }}">
+      {% for choice in question.choices %}
+      <div>
+        <input type="radio" id="opt-{{ loop.index }}" name="answer" value="{{ choice }}" required>
+        <label for="opt-{{ loop.index }}">{{ choice }}</label>
+      </div>
+      {% endfor %}
+
+      {% if number < total %}
+      <button type="submit">Suivant</button>
+      {% else %}
+      <button type="submit">Voir le score</button>
+      {% endif %}
+    </form>
+  </main>
+</body>
+</html>
