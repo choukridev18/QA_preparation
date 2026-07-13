@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8"><title>Contacts</title></head>
+<body>
+  <main>
+    <h1>Mes contacts</h1>
+    <p id="contact-count">{{ contacts | length }} contact(s)</p>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <section id="search-section">
+      <form method="GET" action="/">
+        <label for="q">Rechercher par nom</label>
+        <input type="text" id="q" name="q" value="{{ query }}" placeholder="Nom du contact">
+        <button type="submit">Rechercher</button>
+        {% if query %}
+        <a href="/" id="clear-search">Effacer</a>
+        {% endif %}
+      </form>
+    </section>
+
+    <section id="add-section">
+      <h2>Ajouter un contact</h2>
+      <form method="POST" action="/contacts/add">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Alice Martin">
+
+        <label for="email">Adresse email</label>
+        <input type="text" id="email" name="email" placeholder="alice@example.com">
+
+        <label for="phone">Téléphone</label>
+        <input type="text" id="phone" name="phone" placeholder="06 01 02 03 04">
+
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <section id="contacts-list">
+      {% for contact in contacts %}
+      <div id="contact-{{ contact.id }}" class="contact-item">
+        <span class="contact-name">{{ contact.name }}</span>
+        <span class="contact-email">{{ contact.email }}</span>
+        <span class="contact-phone">{{ contact.phone }}</span>
+        <form method="POST" action="/contacts/{{ contact.id }}/delete">
+          <button type="submit" aria-label="Supprimer {{ contact.name }}">Supprimer</button>
+        </form>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
