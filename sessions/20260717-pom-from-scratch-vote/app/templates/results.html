@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Résultats du sondage</title>
+</head>
+<body>
+  <h1>Résultats</h1>
+
+  <p id="total-votes">Total : {{ total }} vote(s)</p>
+
+  <ul id="results-list">
+    {% for r in results %}
+    <li class="result-row">
+      <span class="option-name">{{ r.option }}</span> :
+      <span id="count-{{ r.option | lower }}" class="option-count">{{ r.count }}</span> vote(s)
+      (<span id="pct-{{ r.option | lower }}" class="option-pct">{{ r.pct }}</span>%)
+    </li>
+    {% endfor %}
+  </ul>
+
+  <a href="/vote-again" id="vote-again">Voter à nouveau</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sondage du jour</title>
+</head>
+<body>
+  <h1>Sondage du jour</h1>
+  <p>Quel est votre langage de programmation préféré ?</p>
+
+  {% if error %}
+  <p id="error-message">{{ error }}</p>
+  {% endif %}
+
+  <form action="/vote" method="post">
+    {% for option in options %}
+    <div>
+      <input type="radio" name="choice" value="{{ option }}" id="choice-{{ option | lower }}">
+      <label for="choice-{{ option | lower }}">{{ option }}</label>
+    </div>
+    {% endfor %}
+    <button type="submit">Voter</button>
+  </form>
+
+  <a href="/results">Voir les résultats sans voter</a>
+</body>
+</html>
