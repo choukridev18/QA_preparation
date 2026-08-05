@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation de créneaux</title>
+</head>
+<body>
+  <h1>Réservation de créneaux</h1>
+
+  {% if error %}
+  <p id="error-message">{{ error }}</p>
+  {% endif %}
+
+  <form action="/book" method="post">
+    <fieldset>
+      <legend>Choisissez un créneau :</legend>
+      {% for slot in slots %}
+      <div>
+        <input
+          type="radio"
+          name="slot_id"
+          value="{{ slot.id }}"
+          id="{{ slot.id }}"
+          {% if slot.id in bookings %}disabled{% endif %}
+        >
+        <label for="{{ slot.id }}">
+          {{ slot.label }}
+          {% if slot.id in bookings %}<span class="taken">(réservé)</span>{% endif %}
+        </label>
+      </div>
+      {% endfor %}
+    </fieldset>
+    <button type="submit">Réserver</button>
+  </form>
+
+  {% if booked_slot_id %}
+  <form action="/cancel" method="post">
+    <button type="submit" id="cancel-button">Annuler ma réservation</button>
+  </form>
+  {% endif %}
+
+  <p id="slot-count">{{ slots | length }} créneau(x) disponible(s) au total</p>
+</body>
+</html>
