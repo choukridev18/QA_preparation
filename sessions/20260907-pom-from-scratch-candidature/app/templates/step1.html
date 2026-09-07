@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidature — Étape 1</title>
+</head>
+<body>
+  <h1>Formulaire de candidature</h1>
+  <h2>Étape 1 — Informations personnelles</h2>
+
+  {% if error %}
+  <p id="error-message">{{ error }}</p>
+  {% endif %}
+
+  <form method="POST">
+    <div>
+      <label for="nom">Nom complet</label>
+      <input type="text" id="nom" name="nom">
+    </div>
+    <div>
+      <label for="email">Adresse email</label>
+      <input type="text" id="email" name="email">
+    </div>
+    <div>
+      <label for="telephone">Téléphone</label>
+      <input type="text" id="telephone" name="telephone">
+    </div>
+    <button type="submit">Suivant</button>
+  </form>
+</body>
+</html>

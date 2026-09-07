@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidature — Confirmation</title>
+</head>
+<body>
+  <h1>Candidature envoyée !</h1>
+  <p id="confirm-message">Merci {{ data.nom }}, votre candidature pour le poste de {{ data.poste }} a bien été reçue.</p>
+
+  <ul>
+    <li id="detail-nom">Nom : {{ data.nom }}</li>
+    <li id="detail-email">Email : {{ data.email }}</li>
+    <li id="detail-poste">Poste : {{ data.poste }}</li>
+    <li id="detail-experience">Expérience : {{ data.experience }}</li>
+  </ul>
+
+  <a href="/step1" id="new-candidature">Soumettre une nouvelle candidature</a>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidature — Étape 2</title>
+</head>
+<body>
+  <h1>Formulaire de candidature</h1>
+  <h2>Étape 2 — Compétences et motivation</h2>
+
+  {% if error %}
+  <p id="error-message">{{ error }}</p>
+  {% endif %}
+
+  <form method="POST">
+    <div>
+      <label for="poste">Poste visé</label>
+      <select id="poste" name="poste">
+        <option value="">-- Choisir --</option>
+        <option value="QA Engineer">QA Engineer</option>
+        <option value="Dev Backend">Dev Backend</option>
+        <option value="Dev Frontend">Dev Frontend</option>
+        <option value="DevOps">DevOps</option>
+      </select>
+    </div>
+    <div>
+      <label for="experience">Années d'expérience</label>
+      <select id="experience" name="experience">
+        <option value="">-- Choisir --</option>
+        <option value="Moins d'1 an">Moins d'1 an</option>
+        <option value="1 à 3 ans">1 à 3 ans</option>
+        <option value="3 à 5 ans">3 à 5 ans</option>
+        <option value="Plus de 5 ans">Plus de 5 ans</option>
+      </select>
+    </div>
+    <div>
+      <label for="motivation">Lettre de motivation</label>
+      <textarea id="motivation" name="motivation" rows="5"></textarea>
+    </div>
+    <a href="/step1">Retour à l'étape 1</a>
+    <button type="submit">Envoyer ma candidature</button>
+  </form>
+</body>
+</html>
