@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau de bord — Livraisons</title>
+</head>
+<body>
+  <h1>Tableau de bord des livraisons</h1>
+
+  <section id="compteurs">
+    <span id="count-tous">Total : {{ counts.tous }}</span> |
+    <span id="count-en-cours">En cours : {{ counts["en cours"] }}</span> |
+    <span id="count-livre">Livrés : {{ counts["livré"] }}</span> |
+    <span id="count-retourne">Retournés : {{ counts["retourné"] }}</span>
+  </section>
+
+  <section id="filtres">
+    <a href="/?statut=tous" id="filtre-tous">Tous</a>
+    <a href="/?statut=en+cours" id="filtre-en-cours">En cours</a>
+    <a href="/?statut=livr%C3%A9" id="filtre-livre">Livrés</a>
+    <a href="/?statut=retourn%C3%A9" id="filtre-retourne">Retournés</a>
+  </section>
+
+  <table id="table-livraisons">
+    <thead>
+      <tr>
+        <th>Client</th>
+        <th>Adresse</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in livraisons %}
+      <tr id="livraison-{{ l.id }}">
+        <td class="client-nom">{{ l.client }}</td>
+        <td class="client-adresse">{{ l.adresse }}</td>
+        <td class="statut-actuel" id="statut-{{ l.id }}">{{ l.statut }}</td>
+        <td>
+          <form action="/update/{{ l.id }}" method="POST">
+            <label for="statut-select-{{ l.id }}">Nouveau statut</label>
+            <select id="statut-select-{{ l.id }}" name="statut">
+              <option value="en cours">en cours</option>
+              <option value="livré">livré</option>
+              <option value="retourné">retourné</option>
+            </select>
+            <button type="submit" aria-label="Mettre à jour livraison {{ l.id }}">Mettre à jour</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
