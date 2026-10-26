@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Demande de congés</title>
+</head>
+<body>
+  <main>
+    <h1>Demande de congés</h1>
+
+    {% if error %}
+    <p id="error-message" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/">
+      <p>
+        <label for="start_date">Date de début</label>
+        <input type="date" id="start_date" name="start_date">
+      </p>
+      <p>
+        <label for="end_date">Date de fin</label>
+        <input type="date" id="end_date" name="end_date">
+      </p>
+      <p>
+        <label for="reason">Motif</label>
+        <input type="text" id="reason" name="reason">
+      </p>
+      <button type="submit">Envoyer la demande</button>
+    </form>
+  </main>
+</body>
+</html>

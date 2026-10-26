@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Demande enregistrée</title>
+</head>
+<body>
+  <main>
+    <h1>Demande enregistrée</h1>
+    <p>Votre demande de congés a bien été prise en compte.</p>
+    <p>
+      Du <span id="confirm-start">{{ leave.start_date }}</span>
+      au <span id="confirm-end">{{ leave.end_date }}</span>
+    </p>
+    <p>Motif : <span id="confirm-reason">{{ leave.reason }}</span></p>
+    <p><a href="/">Nouvelle demande</a></p>
+  </main>
+</body>
+</html>
