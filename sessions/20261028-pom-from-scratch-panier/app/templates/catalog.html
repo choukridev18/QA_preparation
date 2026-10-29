@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Catalogue</title>
+</head>
+<body>
+  <main>
+    <h1>Catalogue</h1>
+    <p>
+      <a href="/cart">Panier</a>
+      <span id="cart-badge" aria-label="Articles dans le panier">{{ cart_count }}</span>
+    </p>
+    <form method="POST" action="/cart/clear">
+      <button type="submit">Vider le panier</button>
+    </form>
+
+    <ul id="product-list">
+      {% for product in products %}
+      <li>
+        <span class="product-name">{{ product.name }}</span>
+        <span class="product-price">{{ "%.2f"|format(product.price) }} €</span>
+        <form method="POST" action="/cart/add">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <button type="submit">Ajouter au panier</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>

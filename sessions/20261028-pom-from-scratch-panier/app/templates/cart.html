@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panier</title>
+</head>
+<body>
+  <main>
+    <h1>Panier</h1>
+    <p><a href="/">Retour catalogue</a></p>
+    <form method="POST" action="/cart/clear">
+      <button type="submit">Vider le panier</button>
+    </form>
+
+    {% if lines %}
+    <ul id="cart-lines">
+      {% for line in lines %}
+      <li data-product-id="{{ line.id }}">
+        <span class="line-name">{{ line.name }}</span>
+        <span class="line-qty">× {{ line.quantity }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p id="cart-total">Total : {{ "%.2f"|format(total) }} €</p>
+    {% else %}
+    <p id="empty-cart" role="status">Votre panier est vide.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
