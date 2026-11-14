@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Support</title>
+</head>
+<body>
+  <main>
+    <h1>Support</h1>
+
+    {% if success %}
+    <p id="success-message" role="status">{{ success }}</p>
+    {% endif %}
+
+    <form method="POST" action="/">
+      <div>
+        <label for="subject">Sujet</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      <div>
+        <label for="priority">Priorité</label>
+        <select id="priority" name="priority" required>
+          <option value="">Choisir…</option>
+          <option value="Basse">Basse</option>
+          <option value="Normale">Normale</option>
+          <option value="Haute">Haute</option>
+        </select>
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="3" required></textarea>
+      </div>
+      <button type="submit">Créer le ticket</button>
+    </form>
+
+    <h2>Tickets</h2>
+    {% if tickets %}
+    <ul id="ticket-list">
+      {% for ticket in tickets %}
+      <li>
+        <span class="ticket-subject">{{ ticket.subject }}</span>
+        <span class="ticket-priority">{{ ticket.priority }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p id="empty-tickets" role="status">Aucun ticket pour le moment.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
