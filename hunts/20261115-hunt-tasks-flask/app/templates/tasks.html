@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes tâches</title>
+</head>
+<body>
+  <main>
+    <h1>Mes tâches</h1>
+    <p>
+      <span id="pending-count" aria-label="Tâches à faire">À faire : {{ pending }}</span>
+    </p>
+
+    <form method="POST" action="/">
+      <div>
+        <label for="new-task">Nouvelle tâche</label>
+        <input type="text" id="new-task" name="title" required>
+      </div>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    {% if tasks %}
+    <ul id="task-list">
+      {% for task in tasks %}
+      <li data-task-id="{{ task.id }}" class="{% if task.done %}is-done{% endif %}">
+        <span class="task-title">{{ task.title }}</span>
+        {% if not task.done %}
+        <form method="POST" action="/complete" class="complete-form">
+          <input type="hidden" name="todo_id" value="{{ task.id }}">
+          <button type="submit">Marquer comme fait</button>
+        </form>
+        {% else %}
+        <span class="task-done-label" role="status">Terminée</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p id="empty-tasks" role="status">Aucune tâche pour le moment.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
